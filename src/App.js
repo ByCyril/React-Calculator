@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-
-import "./App.css";
-import { Button, Input } from "reactstrap";
+import { Button, Input, Container } from "reactstrap";
 
 class App extends Component {
   constructor(props) {
@@ -28,10 +26,10 @@ class App extends Component {
   listenForChange = e => {
     if (e.target.name === "x") {
       this.setState({ x: e.target.value });
-      this.x = parseInt(e.target.value);
+      this.x = parseFloat(e.target.value);
     } else if (e.target.name === "y") {
       this.setState({ y: e.target.value });
-      this.y = parseInt(e.target.value);
+      this.y = parseFloat(e.target.value);
     }
 
     if (this.state.operation === this.operations.SUM) {
@@ -73,7 +71,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <Container>
         <Input
           placeholder="0"
           name="x"
@@ -94,7 +92,7 @@ class App extends Component {
         <Button onClick={this.div}>÷</Button>
 
         <h1>{this.state.results}</h1>
-      </div>
+      </Container>
     );
   }
 }
